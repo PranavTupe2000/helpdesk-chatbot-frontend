@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UsersService } from '../service/users.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,7 @@ import {FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private usersService: UsersService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -28,7 +30,8 @@ export class LoginComponent implements OnInit {
   })
 
   loginSubmitted(){
-    console.log(this.loginForm);
+    // console.log(this.loginForm);
+    this.usersService.loginUser(this.loginForm.value.username, this.loginForm.value.password);
   }
 
   get UserName():FormControl{

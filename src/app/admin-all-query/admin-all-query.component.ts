@@ -18,6 +18,15 @@ export class AdminAllQueryComponent implements OnInit {
     })
   }
 
+  editQuery(id:any, name:string, department:string, description: string){
+    this.adminService.setOption("id",id);
+    this.adminService.setOption("name",name);
+    this.adminService.setOption("department",department);
+    this.adminService.setOption("description",description);
+
+    this.router.navigate(["/update-query"]);
+  }
+
   deleteQuery(id: string){
     this.adminService.deleteQuery(id).subscribe(res=>{
       // this.router.navigate(["/admin"]);

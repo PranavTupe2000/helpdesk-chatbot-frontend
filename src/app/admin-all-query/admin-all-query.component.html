@@ -15,7 +15,7 @@
             <th scope="row">{{query.name}}</th>
             <td>{{query.description}}</td>
             <td>{{query.department}}</td>
-            <td><button onclick="window.open('http://localhost:4200/update-query','_self') " type="button" class="btn btn-outline-primary">update</button></td>
+            <td><button  type="button" class="btn btn-outline-primary" (click)="editQuery(query.id, query.name, query.department, query.description)">update</button></td>
             <td><button type="button" class="btn btn-outline-danger" (click)="deleteQuery(query.id)">delete</button></td>
 
         </tr>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {UsersService} from "../service/users.service"
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register',
@@ -8,7 +11,8 @@ import {FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  // constructor(private usersService: UserServiceService ) { }
+  constructor(private usersService: UsersService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,8 +29,8 @@ export class RegisterComponent implements OnInit {
     Validators.pattern("^[a-zA-Z]*$")]),
     username:new FormControl('',[
     Validators.required,
-    Validators.minLength(10),
-    Validators.maxLength(10), 
+    Validators.minLength(2),
+    Validators.maxLength(20), 
     Validators.pattern("^[_a-z_A-Z_0-9_]*$")]),
     email:new FormControl('',[
     Validators.required,
@@ -40,12 +44,22 @@ export class RegisterComponent implements OnInit {
     Validators.required,
     Validators.minLength(10),
     Validators.maxLength(10),
-    Validators.pattern("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&^%])(?=\\S+$).{8,}$")]),
+    // Validators.pattern("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&^%])(?=\\S+$).{8,}$")
+  ]),
 
   })
 
   registerSubmitted(){
-    console.log(this.registerForm);
+    console.log(this.registerForm.value.firstname);
+    let username:any = this.registerForm.value.username;
+    let email:any = this.registerForm.value.email;
+    let password: any = this.registerForm.value.password;
+    let firstname:any = this.registerForm.value.username;
+    let lastname:any = this.registerForm.value.email;
+    let phone: any = this.registerForm.value.password;
+
+    this.usersService.registerUser(username, email, password, firstname, lastname, phone).subscribe(res=>{})
+    this.router.navigate(["/login"]);
   }
 
   get FirstName(): FormControl{
