@@ -1,0 +1,135 @@
+::-webkit-scrollbar{
+    width: 0;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display:grid;
+    justify-content: center;
+    overflow: hidden;
+}
+#main{
+    width: 100vw;
+    max-width: 540px;
+    height: 100vh;
+    box-shadow: inset 0 0 10px 4px #1116;
+}
+
+h2{
+    text-align: center;
+    font-family: sans-serif;
+    background: #131377;
+    color: #fff;
+    padding: 8px;
+    text-shadow: 1px 1px 4px #011320;
+    margin-bottom: 8px;
+}
+
+#msg_area{
+    height: 82%;
+    padding: 0 12px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    
+    
+}
+#robot{
+    display: flex;
+    align-items: center;
+    
+    /* background-color: green; */
+}
+
+#left{
+    display: flex;
+    align-items: center;
+    /* background-color: blue; */
+    width:40%;
+    padding-left: 10%;
+
+}
+/* #left_new{
+    display: flex;
+    align-items: center;
+    background-color: red;
+    width:100%;
+    padding-left: 50%;
+    left: 150px;
+    right:
+} */
+
+h3{
+    font-family: monospace;
+    font-size: 20px;
+}
+.btn {
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    padding: 5px 14px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .info {
+    border-color:#e7e7e7;
+    color: #011320;
+  }
+  
+  .info:hover {
+    background: #191964;
+    color: white;
+  }
+
+#right{
+    display: flex;
+    align-items: center;
+    padding-left: 80%; 
+    /* background-color: pink; */
+    color:#011320;
+    height:50px;
+    left:150px;
+    right:200px;
+} 
+
+#new{
+    display: flex;
+    align-items: center;
+    color:#011320;
+    /* background-color: blue; */
+    width:40%;
+    padding-left: 10%;
+    
+}
+#input{
+    height: 7%;
+    min-height: 42px;
+    display: grid;
+    grid-template-columns: 100% 0%;
+    margin: 8px 16px;
+    border-radius: 32px;
+    background:linear-gradient(#131377 50%) ;
+    
+
+}
+
+#send{
+    outline: none;
+    font-size: 20px;
+    color:#eee;
+    background: #1c1f46;
+    border: solid 1px #777;
+    border-radius: 32px;
+    padding: 0 26px;
+    
+    transition-duration: 0.2s;
+}
+#send:active{
+    font-size: 16px;
+}
+

@@ -10,7 +10,6 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './chat/chat.component';
 import { HomeComponent } from './home/home.component';
-import { UserListComponent } from './user-list/user-list.component';
 import { AddQueryComponent } from './add-query/add-query.component';
 import { UpdateQueryComponent } from './update-query/update-query.component';
 import { AdminAllQueryComponent } from './admin-all-query/admin-all-query.component';
@@ -23,7 +22,6 @@ import { AdminAllQueryComponent } from './admin-all-query/admin-all-query.compon
     LoginComponent,
     ChatComponent,
     HomeComponent,
-    UserListComponent,
     AddQueryComponent,
     UpdateQueryComponent,
     AdminAllQueryComponent

@@ -9,6 +9,16 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
   
+  private isAuthenticated : boolean = false ;
+
+  getAuth(){
+    return this.isAuthenticated
+  }
+
+  setAuth(auth: boolean){
+    this.isAuthenticated = auth;
+  }
+
   registerUser(username: string, email:string, password: string, firstname: string, lastname: string, phone: string){
     const body = {
       "username": username,
@@ -22,7 +32,11 @@ export class UsersService {
   }
 
   loginUser(username: any, password: any){
-    console.log(username + password);
-    
+    console.log("From service: " + username + password);
+    const body = {
+      "username": username,
+      "password": password
+    }
+    return this.http.post("http://localhost:8088/user/login",body);
   }
 }

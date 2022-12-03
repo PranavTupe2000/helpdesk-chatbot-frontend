@@ -39,9 +39,9 @@ body {
       <div class="row">  
         <div class="col-md-8 offset-md-2">  
           <div class="login-form">  
-            <form [formGroup]="loginForm" (ngSubmit)="loginSubmitted()" >  
+            <form [formGroup]="loginForm"  >  
                 
-                <label for="exampleInputEmail1">Enter email </label>  
+                <label for="exampleInputEmail1">Enter Username </label>  
                 <input type="email" formControlName="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username"> <br> 
                 <div class="form-text text-danger" *ngIf="UserName.errors?.['required'] && (UserName.touched || UserName.dirty)">
                   UserName is required
