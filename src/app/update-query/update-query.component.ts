@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminService} from "../service/admin.service";
 
 @Component({
   selector: 'app-update-query',
@@ -9,7 +9,7 @@ import { AdminServiceService } from '../admin-service.service';
 })
 export class UpdateQueryComponent implements OnInit {
 
-  constructor(private adminService : AdminServiceService,  private router: Router) { }
+  constructor(private adminService : AdminService,  private router: Router) { }
 
   id :any
   name = ""
@@ -18,6 +18,7 @@ export class UpdateQueryComponent implements OnInit {
 
   data:any
   ngOnInit(): void {
+    this.adminService.checkAuthenticated();
     this.id = this.adminService.getOption()['id']
     this.name = this.adminService.getOption()['name']
     this.department = this.adminService.getOption()['department']

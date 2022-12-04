@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { AddQueryComponent } from './add-query/add-query.component';
 import { UpdateQueryComponent } from './update-query/update-query.component';
 import { AdminAllQueryComponent } from './admin-all-query/admin-all-query.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AdminAllQueryComponent } from './admin-all-query/admin-all-query.compon
     HomeComponent,
     AddQueryComponent,
     UpdateQueryComponent,
-    AdminAllQueryComponent
+    AdminAllQueryComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,

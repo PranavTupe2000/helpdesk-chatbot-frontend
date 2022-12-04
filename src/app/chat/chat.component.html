@@ -9,10 +9,19 @@
     </head>
     <body>
         <div id="main">
-            <h2>ChatBot {{test}}</h2>
+            <nav class="navbar  ">
+                <a class="navbar-brand">Chatbot</a>
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item">
+                        <button class="nav-link btn danger" (click)="logoutUser()">
+                          LogOut
+                        </button>
+                    </li>
+                </ul>
+              </nav>
             <div id="msg_area">
                 <div id="robot" >
-                    <h3><b>Welcome to ChatBot</b></h3>
+                    <h3><b>Hello {{name}} </b></h3>
                 </div>
             
                 <div id="left" *ngFor="let d of department">
@@ -30,34 +39,23 @@
                 <div >
                     <p id="new" align="justify"><b>{{descriptions}}</b></p>
                 </div>
+                <div *ngIf="completed">
                 <div id="right">
                     <p><b>{{abc}}</b></p>
                 </div>
                 <div id="right">
-                    <button (click)="getDept()" type="button" class="btn info">{{yes}}</button>
-                    <button type="button" class="btn info">{{no}}</button>
+                    <button (click)="yesClicked()" type="button" class="btn info">{{yes}}</button>
+                    <button (click)="noClicked()" type="button" class="btn info" >{{no}}</button>
                 </div>
-                <div>
-                    <p>{{dept}}</p>
                 </div>
-                
-
-
-
-
-                <!-- <div id="demo">
-                    <p *ngFor="let d of department"></p>
-                    <button (click)="getDescription(q)" type="button" class="btn info">{{d}}</button>
-                </div> -->
-                
-                <!-- (click)="getDescription(dd)" -->
-                <!-- *ngFor="let dd of descriptions" -->
-            
+                <div id="left" *ngIf="msg">
+                    <p><b>Thankyou</b></p>
+                </div>
             </div>
-            <div id="input">
+            <!-- <div id="input">
                 
                 <button id="send">Send<i  class="fa fa-paper-plane"></i></button>
-            </div>
+            </div> -->
             
             </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js" integrity="sha512-OdkysyYNjK4CZHgB+dkw9xQp66hZ9TLqmS2vXaBrftfyJeduVhyy1cOfoxiKdi4/bfgpco6REu6Rb+V2oVIRWg==" 

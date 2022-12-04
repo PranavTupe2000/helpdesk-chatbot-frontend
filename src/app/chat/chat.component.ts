@@ -17,9 +17,12 @@ export class ChatComponent implements OnInit {
     ) { }
 
   department : any;
-  test: any;
+  name: any;
+
+
   ngOnInit(): void {
-    this.test = sessionStorage.getItem("username");
+    this.userService.checkAuthenticated()
+    this.name = sessionStorage.getItem("username");
     this.chatService.getDepartment().subscribe(res=>{
       this.department = res
     })
@@ -49,12 +52,15 @@ que:any;
 abc:any;
 yes:any;
 no:any;
+completed:boolean = false;
 getDescription(q:any){
   console.log(q)
   this.que=q;
   this.abc="any more queries?";
   this.yes="YES";
   this.no="NO";
+  this.completed=true
+
   this.chatService.getDescription(q).subscribe(res=>{
     this.descriptions=JSON.stringify(res)
     
@@ -62,5 +68,18 @@ getDescription(q:any){
   console.log(this.descriptions);
 }
   
+  logoutUser(){
+    this.userService.logoutUser()
+    this.router.navigate(["/"]);
+  }
 
+  yesClicked(){
+    location.reload();
+
+  }
+
+  msg:boolean =false;
+  noClicked(){
+    this.msg=true;
+  }
 }

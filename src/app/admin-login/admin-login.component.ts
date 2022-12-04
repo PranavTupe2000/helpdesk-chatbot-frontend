@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {AdminService} from "../service/admin.service"
 import { Router } from '@angular/router';
-import { UsersService } from '../service/users.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-admin-login',
+  templateUrl: './admin-login.component.html',
+  styleUrls: ['./admin-login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class AdminLoginComponent implements OnInit {
 
-  constructor(private usersService: UsersService, private router: Router) { }
+  constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,11 +33,15 @@ export class LoginComponent implements OnInit {
 
 
   loginSubmitted(){
-    this.usersService.loginUser(this.loginForm.value.username, this.loginForm.value.password).subscribe(res =>{
+    console.log("This");
+    
+    this.adminService.adminLogin(this.loginForm.value.username, this.loginForm.value.password).subscribe(res =>{
       const msg = JSON.parse(JSON.stringify(res)).message;
+      console.log(msg);
+      
       if (msg == "Success"){
-        sessionStorage.setItem("username",this.loginForm.value.username || "")
-        this.router.navigate(["/chat"]);
+        sessionStorage.setItem("admin",this.loginForm.value.username || "")
+        this.router.navigate(["/admin"]);
       } else if(msg == "Failed"){
       }
       
@@ -51,13 +55,6 @@ export class LoginComponent implements OnInit {
   }
   get Password():FormControl{
     return this.loginForm.get("password") as FormControl;
-  }
-
-  toRegister(){
-    this.router.navigate(["/register"]);
-  }
-  toAdminLogin(){
-    this.router.navigate(["/admin-login"]);
   }
 
 }

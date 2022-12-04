@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminService} from "../service/admin.service";
 
 @Component({
   selector: 'app-admin-all-query',
@@ -9,10 +9,11 @@ import { AdminServiceService } from '../admin-service.service';
 })
 export class AdminAllQueryComponent implements OnInit {
 
-  constructor(private adminService: AdminServiceService,  private router: Router) { }
+  constructor(private adminService: AdminService,  private router: Router) { }
   allData : any
   
   ngOnInit(): void {
+    this.adminService.checkAuthenticated();
     this.adminService.getData().subscribe(res=>{
       this.allData = res
     })
@@ -34,4 +35,12 @@ export class AdminAllQueryComponent implements OnInit {
     location.reload();
   }
 
+  toAddQuery(){
+    this.router.navigate(["/add-query"]);
+  }
+
+  logoutAdmin(){
+    this.adminService.logoutAdmin();
+    this.router.navigate(["/"]);
+  }
 }

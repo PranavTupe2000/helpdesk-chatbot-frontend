@@ -19,12 +19,35 @@ body{
     height: 100vh;
     box-shadow: inset 0 0 10px 4px #1116;
 }
+.navbar{
+    
+    font-family: sans-serif;
+    background: #131377;
+    color: #fff;
+    word-spacing: 4em; 
+    padding: 8px;
+    text-shadow: 1px 1px 4px #011320;
+    margin-bottom: 8px;
+
+}
+.navbar-brand{
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+    color:white;
+    left: 100px;
+    padding:3px;
+}
+.form-control mr-sm-2{
+    background-color: #011320 ;
+}
 
 h2{
     text-align: center;
     font-family: sans-serif;
     background: #131377;
     color: #fff;
+    word-spacing: 4em; 
     padding: 8px;
     text-shadow: 1px 1px 4px #011320;
     margin-bottom: 8px;

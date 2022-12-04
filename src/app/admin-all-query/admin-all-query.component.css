@@ -1,0 +1,10 @@
+#right{
+    display: flex;
+    align-items: center;
+    padding-left: 80%; 
+    /* background-color: pink; */
+    color:#011320;
+    height:50px;
+    left:150px;
+    right:200px;
+} 

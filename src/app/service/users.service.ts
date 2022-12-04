@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -7,16 +8,15 @@ import { HttpClient } from "@angular/common/http";
 })
 export class UsersService {
 
-  constructor(private http: HttpClient) { }
-  
-  private isAuthenticated : boolean = false ;
+  constructor(private http: HttpClient, private router :Router) { }
 
-  getAuth(){
-    return this.isAuthenticated
-  }
-
-  setAuth(auth: boolean){
-    this.isAuthenticated = auth;
+  checkAuthenticated(){
+    if(sessionStorage.getItem("username") == null){
+      console.log("Not Authenticated");
+      this.router.navigate(["/login"]);
+    }else{
+      console.log("Authenticated");
+    }
   }
 
   registerUser(username: string, email:string, password: string, firstname: string, lastname: string, phone: string){
@@ -38,5 +38,9 @@ export class UsersService {
       "password": password
     }
     return this.http.post("http://localhost:8088/user/login",body);
+  }
+
+  logoutUser(){
+    sessionStorage.removeItem("username")
   }
 }

@@ -4,30 +4,6 @@ body {
     background-size: cover;  
     padding-top: 0px;  
   }  
-  .navbar{
-    padding: 8px;  
-    border-radius: 50px;
-    color: black; 
-    width: 100vw;
-    max-width: 540px;
-    /* background-color: red; */
-    left:30%;
-
-  }
-  .navbar-brand{
-    /* text-align: center; */
-    font-size:40px;
-    display: inline-block;
-    margin: 0 auto;
-    color:black;
-    /* background-color: blue;
-    left: 100%; */
-    padding:3px 3px 3px 125px;
-    
-}
-a.nav-link{
-    font-size:20px;
-}
   .login-form {  
     background:rgb(52, 99, 117);  
     margin-top: 20px;  
@@ -46,16 +22,16 @@ a.nav-link{
   .btn-primary {  
     width: 100%;  
   }  
-  .abc{
+  /* .abc{
     text-align: center;
   }
   a:link {
     color: green;
-    /* background-color: transparent; */
+     background-color: transparent; 
     text-decoration: none;
   }
   a:hover {
     color: hotpink;
     background-color: transparent;
     text-decoration: underline;
-  }
+  } */

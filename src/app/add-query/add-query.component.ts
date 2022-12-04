@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminService} from "../service/admin.service";
 
 @Component({
   selector: 'app-add-query',
@@ -9,13 +9,14 @@ import { AdminServiceService } from '../admin-service.service';
 })
 export class AddQueryComponent implements OnInit {
 
-  constructor(private adminService: AdminServiceService,  private router: Router) { }
+  constructor(private adminService: AdminService,  private router: Router) { }
 
   queryName = "";
   queryDepartment = "";
   queryDescription = "";
 
   ngOnInit(): void {
+    this.adminService.checkAuthenticated();
   }
 
   addQuery = () =>{
